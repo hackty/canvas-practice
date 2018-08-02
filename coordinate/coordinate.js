@@ -11,6 +11,7 @@ function window2canvas(canvas, x, y) {
 canvas.onmousemove = function (e) {
     var loc = window2canvas(canvas, e.clientX, e.clientY);
     drawGuildLine(loc.x,loc.y);
+    updateReadOut(loc.x,loc.y);
 };
 
 function clearBackground() {
@@ -35,4 +36,8 @@ function drawGuildLine(x,y) {
     clearBackground();
     drawVerticalLine(x);
     drawHorizontalLine(y);
+}
+
+function updateReadOut(x,y) {
+    document.getElementById('readOut').innerText='(' + x.toFixed(0) + ',' + y.toFixed(0) + ')';
 }
